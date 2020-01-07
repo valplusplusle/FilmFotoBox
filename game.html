@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href="bootstrap.min.css" rel="stylesheet" >
 	<link href="style.css" rel="stylesheet" >
+	
+	<script type="text/javascript" src="gameInit.js"></script>
+	<script type="text/javascript" src="webcam.min.js"></script>
 
   </head>
   <body class="d-flex flex-column h-100">
@@ -26,13 +29,34 @@
 <main role="main" class="flex-shrink-0">
   <div class="container mx-auto">
   	<br><br><br>
-  	<div id="gameScene" class="jumbotron"> 
-	<h1 class="d-flex justify-content-center">Willkommen in der FilmFotoBox!</h1>
-	<br>
-	<p class="d-flex justify-content-center">Das spiel ist einfach. Wähle wie viele Spieler aufs Foto möchten. Eine bekannte Filmszene erscheint. Ihr habt nun 20 Sekunden Zeit das Bild möglichst genau nachzustellen. Danach kann das Foto online geteilt werden oder vor Ort ausgedruckt werden.</p>
-	<br>
-	<a href="game.html" class="btn btn-primary playerBox d-flex justify-content-center">Start Game</a>
+  	
+  	<div id="gameScene" class="jumbotron d-flex justify-content-center"> 
+  		<div id="2player" class="btn btn-primary playerBox" onclick="initPlayer('2')">2 Spieler</div>
+  		<div id="3player" class="btn btn-primary playerBox" onclick="initPlayer('3')">3 Spieler</div>
+  		<div id="4player" class="btn btn-primary playerBox" onclick="initPlayer('4')">4 Spieler</div>
+  		<div id="5player" class="btn btn-primary playerBox" onclick="initPlayer('5')">5 Spieler</div>
   	</div>
+  	
+  	<div class="jumbotron"> 
+		<div id="wrappcenter" class="d-flex justify-content-center">
+			<div id="my_camera"></div>
+		</div>
+		<div id="wrappcenter" class="d-flex justify-content-center">
+			<div id="results"></div>
+		</div>
+
+		<!-- Configure a few settings and attach camera -->
+		<script language="JavaScript">
+			Webcam.set({
+				width: 500,
+				height: 300,
+				image_format: 'jpeg',
+				jpeg_quality: 90
+			});
+			Webcam.attach( '#my_camera' );
+		</script>
+	</div>
+	
   </div>
 </main>
 
