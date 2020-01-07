@@ -29,34 +29,33 @@
 <main role="main" class="flex-shrink-0">
   <div class="container mx-auto">
   	<br><br><br>
-  	
-  	<div id="gameScene" class="jumbotron d-flex justify-content-center"> 
-  		<div id="2player" class="btn btn-primary playerBox" onclick="initPlayer('2')">2 Spieler</div>
-  		<div id="3player" class="btn btn-primary playerBox" onclick="initPlayer('3')">3 Spieler</div>
-  		<div id="4player" class="btn btn-primary playerBox" onclick="initPlayer('4')">4 Spieler</div>
-  		<div id="5player" class="btn btn-primary playerBox" onclick="initPlayer('5')">5 Spieler</div>
-  	</div>
-  	
-  	<div class="jumbotron"> 
-		<div id="wrappcenter" class="d-flex justify-content-center">
-			<div id="my_camera"></div>
-		</div>
-		<div id="wrappcenter" class="d-flex justify-content-center">
-			<div id="results"></div>
-		</div>
-
-		<!-- Configure a few settings and attach camera -->
-		<script language="JavaScript">
-			Webcam.set({
-				width: 500,
-				height: 300,
-				image_format: 'jpeg',
-				jpeg_quality: 90
-			});
-			Webcam.attach( '#my_camera' );
-		</script>
-	</div>
+  	<div id="printHidden">
+	  	<div id="gameScene" class="jumbotron text-center"> 
+	  		<div id="2player" class="btn btn-primary playerBox" onclick="initPlayer('2')">2 Spieler</div>
+	  		<div id="3player" class="btn btn-primary playerBox" onclick="initPlayer('3')">3 Spieler</div>
+	  		<div id="4player" class="btn btn-primary playerBox" onclick="initPlayer('4')">4 Spieler</div>
+	  		<div id="5player" class="btn btn-primary playerBox" onclick="initPlayer('5')">5 Spieler</div>
+	  	</div>
+	  	
+	  	<div class="jumbotron"> 
+			<div id="wrappcenter" class="d-flex justify-content-center">
+				<div id="my_camera"></div>
+				<div id="countdown"></div>
+			</div>
 	
+			<!-- Configure a few settings and attach camera -->
+			<script language="JavaScript">
+				Webcam.set({
+					width: 640,
+					height: 480,
+					image_format: 'jpeg',
+					jpeg_quality: 100
+				});
+				Webcam.attach( '#my_camera' );
+			</script>
+		</div>
+	</div>
+		<div id="results" class="resultPic d-flex justify-content-center"></div>
   </div>
 </main>
 

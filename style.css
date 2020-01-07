@@ -2,4 +2,27 @@
 	min-height: 100px;
 	min-width: 200px;
 	padding-top: 35px;
+	margin: 5px;
+}
+
+.picture {
+	height: 300px;
+}
+
+.jumbotron {
+	padding:0px;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+.visible {
+	visibility: visible;
+}
+.hidden {
+	visibility: hidden;
+}
+
+.resultPic {
+	position: absolute;
+	top: 100px;
 }

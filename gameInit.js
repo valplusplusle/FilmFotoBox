@@ -3,16 +3,17 @@ function sleep(ms) {
 }
 
 async function startcountdown() {
-	for (let i = 0; i < 5; i++) {
+	for (let i = 5; i > 0; i--) {
     	await sleep(2000);
-    	console.log(i);
+    	document.getElementById("countdown").innerHTML = "<h1>"+ i +"</h1>";
 	}
 	take_snapshot();
+	document.getElementById("printHidden").classList.add('hidden');
 }
 
 function initPlayer(numberOfPlayers) {
 	if(numberOfPlayers == 2) {
-		document.getElementById("gameScene").innerHTML = "2";
+		document.getElementById("gameScene").innerHTML = '<img src="./2player/'+1+'.jpg" class="rounded mx-auto d-block picture">';
 	}
 	else if (numberOfPlayers == 3) {
 		document.getElementById("gameScene").innerHTML = "3";
