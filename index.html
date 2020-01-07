@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href="bootstrap.min.css" rel="stylesheet" >
+	<link href="style.css" rel="stylesheet" >
+	<script type="text/javascript" src="gameInit.js"></script>
 
   </head>
   <body class="d-flex flex-column h-100">
@@ -24,29 +26,42 @@
 <!-- Begin page content -->
 <main role="main" class="flex-shrink-0">
   <div class="container mx-auto">
-  	<br><br><br><br>
-
-	<div id="results"></div>
-	
-	<div id="my_camera"></div>
-	<!-- First, include the Webcam.js JavaScript Library -->
-	<script type="text/javascript" src="webcam.min.js"></script>
-	<!-- Configure a few settings and attach camera -->
-	<script language="JavaScript">
-		Webcam.set({
-			width: 320,
-			height: 240,
-			image_format: 'jpeg',
-			jpeg_quality: 90
-		});
-		Webcam.attach( '#my_camera' );
-	</script>
-	
-	<!-- A button for taking snaps -->
-	<form>
-		<input type=button value="Drücke zum Auslösen" onClick="take_snapshot()">
-	</form>
-	
+  	<br><br><br>
+  	
+  	<div id="gameScene" class="jumbotron d-flex justify-content-center"> 
+  		<div id="2player" class="btn btn-primary playerBox" onclick="initPlayer('2')">2 Spieler</div>
+  		<div id="3player" class="btn btn-primary playerBox" onclick="initPlayer('3')">3 Spieler</div>
+  		<div id="4player" class="btn btn-primary playerBox" onclick="initPlayer('4')">4 Spieler</div>
+  		<div id="5player" class="btn btn-primary playerBox" onclick="initPlayer('5')">5 Spieler</div>
+  	</div>
+  	
+  	<div class="jumbotron"> 
+		<div id="wrappcenter" class="d-flex justify-content-center">
+			<div id="my_camera"></div>
+		</div>
+		<div id="wrappcenter" class="d-flex justify-content-center">
+			<div id="results"></div>
+		</div>
+		<!-- First, include the Webcam.js JavaScript Library -->
+		<script type="text/javascript" src="webcam.min.js"></script>
+		<!-- Configure a few settings and attach camera -->
+		<script language="JavaScript">
+			Webcam.set({
+				width: 500,
+				height: 300,
+				image_format: 'jpeg',
+				jpeg_quality: 90
+			});
+			Webcam.attach( '#my_camera' );
+		</script>
+		
+		<!-- A button for taking snaps -->
+		<div id="wrappcenter" class="d-flex justify-content-center">
+			<form>
+				<input type=button value="Drücke zum Auslösen" onClick="take_snapshot()">
+			</form>
+		</div>
+	</div>
 	<!-- Code to handle taking the snapshot and displaying it locally -->
 	<script language="JavaScript">
 		function take_snapshot() {
