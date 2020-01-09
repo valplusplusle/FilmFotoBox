@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link href="bootstrap.min.css" rel="stylesheet" >
+	<link href="import/bootstrap.min.css" rel="stylesheet" >
 	<link href="style.css" rel="stylesheet" >
-	
+	<script src="import/jquery-3.3.1.slim.min.js"></script>
+	<script src="import/bootstrap.min.js"></script>
 	<script type="text/javascript" src="gameInit.js"></script>
 	<script type="text/javascript" src="import/webcam.min.js"></script>
 
@@ -34,13 +35,12 @@
 	  		<div id="2player" class="btn btn-primary playerBox" onclick="initPlayer('2')">2 Spieler</div>
 	  		<div id="3player" class="btn btn-primary playerBox" onclick="initPlayer('3')">3 Spieler</div>
 	  		<div id="4player" class="btn btn-primary playerBox" onclick="initPlayer('4')">4 Spieler</div>
-	  		<div id="5player" class="btn btn-primary playerBox" onclick="initPlayer('5')">5 Spieler</div>
 	  	</div>
 	  	
 	  	<div class="jumbotron"> 
 			<div id="wrappcenter" class="d-flex justify-content-center">
 				<div id="my_camera"></div>
-				<div id="countdown"></div>
+				<div id="countdown" class="btn btn-primary countdown">Countdown</div>
 			</div>
 	
 			<!-- Configure a few settings and attach camera -->
@@ -63,8 +63,5 @@
   <div class="container">
   </div>
 </footer>
-
-<script src="jquery-3.3.1.slim.min.js"></script>
-<script src="bootstrap.min.js"></script>
 
 </html>

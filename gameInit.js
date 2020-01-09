@@ -12,17 +12,15 @@ async function startcountdown() {
 }
 
 function initPlayer(numberOfPlayers) {
+	pictureNumber = (Math.floor(Math.random() * 9)) + 1;
 	if(numberOfPlayers == 2) {
-		document.getElementById("gameScene").innerHTML = '<img src="./2player/'+1+'.jpg" class="rounded mx-auto d-block picture">';
+		document.getElementById("gameScene").innerHTML = '<img src="./2player/'+pictureNumber+'.jpg" class="rounded mx-auto d-block picture">';
 	}
 	else if (numberOfPlayers == 3) {
-		document.getElementById("gameScene").innerHTML = "3";
+		document.getElementById("gameScene").innerHTML = '<img src="./3player/'+pictureNumber+'.jpg" class="rounded mx-auto d-block picture">';
 	}
 	else if (numberOfPlayers == 4) {
-		document.getElementById("gameScene").innerHTML = "4";
-	}
-	else if (numberOfPlayers == 5) {
-		document.getElementById("gameScene").innerHTML = "5";
+		document.getElementById("gameScene").innerHTML = '<img src="./4player/'+pictureNumber+'.jpg" class="rounded mx-auto d-block picture">';
 	}
 	startcountdown();
 }
