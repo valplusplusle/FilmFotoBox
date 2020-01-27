@@ -2,34 +2,38 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function startcountdown() {
-	for (let i = 5; i > 0; i--) {
-    	await sleep(2000);
+async function startcountdown(numberOfPlayers, picture) {
+	for (let i = 10; i > 0; i--) {
+    	await sleep(1000);
     	document.getElementById("countdown").innerHTML = "<h1>"+ i +"</h1>";
 	}
-	take_snapshot();
+	take_snapshot(numberOfPlayers, picture);
 	document.getElementById("printHidden").classList.add('hidden');
 }
 
 function initPlayer(numberOfPlayers) {
-	pictureNumber = (Math.floor(Math.random() * 9)) + 1;
 	if(numberOfPlayers == 2) {
-		document.getElementById("gameScene").innerHTML = '<img src="./2player/'+pictureNumber+'.jpg" class="rounded mx-auto d-block picture">';
+		var pictureNumber2 = (Math.floor(Math.random() * 17)) + 1;
+		document.getElementById("gameScene").innerHTML = '<img src="./2player/'+pictureNumber2+'.jpg" class="rounded mx-auto d-block picture">';
+		startcountdown("2player", pictureNumber2);
 	}
 	else if (numberOfPlayers == 3) {
-		document.getElementById("gameScene").innerHTML = '<img src="./3player/'+pictureNumber+'.jpg" class="rounded mx-auto d-block picture">';
+		var pictureNumber3 = (Math.floor(Math.random() * 8)) + 1;
+		document.getElementById("gameScene").innerHTML = '<img src="./3player/'+pictureNumber3+'.jpg" class="rounded mx-auto d-block picture">';
+		startcountdown("3player", pictureNumber3);
 	}
 	else if (numberOfPlayers == 4) {
-		document.getElementById("gameScene").innerHTML = '<img src="./4player/'+pictureNumber+'.jpg" class="rounded mx-auto d-block picture">';
+		var pictureNumber4 = (Math.floor(Math.random() * 10)) + 1;
+		document.getElementById("gameScene").innerHTML = '<img src="./4player/'+pictureNumber4+'.jpg" class="rounded mx-auto d-block picture">';
+		startcountdown("4player", pictureNumber4);
 	}
-	startcountdown();
 }
 
-function take_snapshot() {
+function take_snapshot(numberOfPlayers, picture) {
 	// take snapshot and get image data
 	Webcam.snap( function(data_uri) {
 		// display results in page
 		document.getElementById('results').innerHTML = 
-			'<img src="'+data_uri+'"/>';
+			'<img src="'+data_uri+'"/>' + '<img src="./'+numberOfPlayers+'/'+picture+'.jpg" class="rounded mx-auto d-block picture">' + '<br> <a href="'+data_uri+'" class="btn btn-primary playerBox d-flex justify-content-center" download>Bild Speichern</a> <a href="index.html" class="btn btn-primary playerBox d-flex justify-content-center">Neues Foto</a>';
 	} );
 }
