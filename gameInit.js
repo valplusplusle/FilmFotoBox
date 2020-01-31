@@ -45,3 +45,10 @@ function take_snapshot(numberOfPlayers, picture) {
 		}
 	} );
 }
+
+function printImage(img) {
+	popup = window.open();
+	popup.document.write("<img src='"+img+"'>");
+	popup.focus(); //required for IE
+	popup.print();
+}
