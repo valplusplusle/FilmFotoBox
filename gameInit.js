@@ -3,7 +3,7 @@ function sleep(ms) {
 }
 
 async function startcountdown(numberOfPlayers, picture) {
-	for (let i = 10; i > 0; i--) {
+	for (let i = 20; i > 0; i--) {
     	await sleep(1000);
     	document.getElementById("countdown").innerHTML = "<h1>"+ i +"</h1>";
 	}
@@ -27,13 +27,21 @@ function initPlayer(numberOfPlayers) {
 		document.getElementById("gameScene").innerHTML = '<img src="./4player/'+pictureNumber4+'.jpg" class="rounded mx-auto d-block picture">';
 		startcountdown("4player", pictureNumber4);
 	}
+		else if (numberOfPlayers == 5) {
+		startcountdown("no", pictureNumber4);
+	}
 }
 
 function take_snapshot(numberOfPlayers, picture) {
 	// take snapshot and get image data
 	Webcam.snap( function(data_uri) {
 		// display results in page
-		document.getElementById('results').innerHTML = 
+		if (numberOfPlayers == "no") {
+			document.getElementById('results').innerHTML = 
+			'<img src="'+data_uri+'"/>' + '<br> <a href="'+data_uri+'" class="btn btn-primary playerBox d-flex justify-content-center" download>Bild Speichern</a> <a href="index.html" class="btn btn-primary playerBox d-flex justify-content-center">Neues Foto</a>';
+		} else {
+			document.getElementById('results').innerHTML = 
 			'<img src="'+data_uri+'"/>' + '<img src="./'+numberOfPlayers+'/'+picture+'.jpg" class="rounded mx-auto d-block picture">' + '<br> <a href="'+data_uri+'" class="btn btn-primary playerBox d-flex justify-content-center" download>Bild Speichern</a> <a href="index.html" class="btn btn-primary playerBox d-flex justify-content-center">Neues Foto</a>';
+		}
 	} );
 }
