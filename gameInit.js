@@ -3,7 +3,7 @@ function sleep(ms) {
 }
 
 async function startcountdown(numberOfPlayers, picture) {
-	for (let i = 20; i > 0; i--) {
+	for (let i = 20; i >= 0; i--) {
     	await sleep(1000);
     	document.getElementById("countdown").innerHTML = "<h1>"+ i +"</h1>";
 	}
@@ -38,10 +38,10 @@ function take_snapshot(numberOfPlayers, picture) {
 		// display results in page
 		if (numberOfPlayers == "no") {
 			document.getElementById('results').innerHTML = 
-			'<img src="'+data_uri+'"/>' + '<br> <a href="'+data_uri+'" class="btn btn-primary playerBox d-flex justify-content-center" download>Bild Speichern</a> <a href="index.html" class="btn btn-primary playerBox d-flex justify-content-center">Neues Foto</a>';
+			'<img src="'+data_uri+'"/>' + '<br> <a href="'+data_uri+'" class="btn btn-primary playerBox d-flex justify-content-center" download>Bild Speichern</a> <a href="index.html" class="btn btn-primary playerBox d-flex justify-content-center">Neues Foto</a> <a href="#" onclick="&#39;'+data_uri+'&#39;" class="btn btn-primary playerBox d-flex justify-content-center">Drucken</a>';
 		} else {
 			document.getElementById('results').innerHTML = 
-			'<img src="'+data_uri+'"/>' + '<img src="./'+numberOfPlayers+'/'+picture+'.jpg" class="rounded mx-auto d-block picture">' + '<br> <a href="'+data_uri+'" class="btn btn-primary playerBox d-flex justify-content-center" download>Bild Speichern</a> <a href="index.html" class="btn btn-primary playerBox d-flex justify-content-center">Neues Foto</a>';
+			'<img src="'+data_uri+'"/>' + '<img src="./'+numberOfPlayers+'/'+picture+'.jpg" class="rounded mx-auto d-block picture">' + '<br> <a href="'+data_uri+'" class="btn btn-primary playerBox d-flex justify-content-center" download>Bild Speichern</a> <a href="index.html" class="btn btn-primary playerBox d-flex justify-content-center">Neues Foto</a> <a href="#" onclick="&#39;'+data_uri+'&#39;" class="btn btn-primary playerBox d-flex justify-content-center">Drucken</a>';
 		}
 	} );
 }
